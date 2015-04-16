@@ -1,0 +1,17 @@
+You can use this script to rotate pdf documets before sending over hylafax.
+
+To do that modify the (by default) /etc/typerules file by replacing the line:
+0		string			%PDF			pdf
+
+With:
+0		string			%PDF			pdf		/path/to/pdf-auto-rotate.py
+
+Restart the hylafax by running:
+# service hylafax restart
+
+Keep in mind that this take some time to run (a few seconds even on small
+documents) and might not be a smart idea if you have a server with large
+volume of fax documents.
+
+While hylafax claims that it has autorotate option in config, this didn't
+work with all documents.
